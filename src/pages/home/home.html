@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="danger">
+      Home
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-refresher *ngIf="!hidden" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="pull down to refresh" ></ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="hidden">
+    <h1 style="text-align: center">No Records</h1>
+
+    <h3 style="text-align: center">No records found</h3>
+  </div>
+
+  <div *ngIf="!hidden">
+
+    <ion-card *ngFor="let event of events">
+      <div  (click)="viewEvent($event, event.id)">
+        <img [src]="event.picture"/>
+        <div class="card-title">
+          <span text-uppercase text-left float-left class="event-name">{{event.name}}</span>
+          <span text-right float-right class="date-text"><ion-icon name="alarm"></ion-icon> {{event.date}}</span>
+        </div>
+        <div class="card-subtitle" *ngIf="event.ticket > 20">{{event.ticket}} tickets left</div>
+        <div class="card-subtitle-red" *ngIf="event.ticket < 20">{{event.ticket}} tickets left</div>
+      </div>
+    </ion-card>
+
+    <ion-card  *ngIf="noRecords">
+      <ion-item>
+        <p style="text-align: center">No more events</p>
+      </ion-item>
+    </ion-card>
+
+    <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+</ion-content>

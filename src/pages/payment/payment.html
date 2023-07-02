@@ -1,0 +1,69 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Payment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+   <div class="payment_cards">
+    <ion-card>
+
+      <ion-card-content>
+        <ion-item >
+          <ion-avatar>
+              <img item-left src="../../assets/imgs/MoMo.jpg" alt="momo">
+          </ion-avatar>
+          <div item-right >
+            <h5 class="text-center">MTN Mobile Money</h5>
+            <hr>
+            <button ion-button icon-right class="loginBtn" (click)="confirmPayment('MTN')" color="primary">Pay</button>
+
+          </div>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-item >
+          <ion-avatar>
+              <img item-left src="../../assets/imgs/atm.jpg" alt="atm">
+          </ion-avatar>
+          <div item-right >
+            <h5 class="text-center">AirtelTigo Money</h5>
+            <hr>
+            <button ion-button icon-right class="loginBtn" (click)="confirmPayment('ATL')" color="primary">Pay</button>
+
+          </div>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-item >
+          <ion-avatar>
+            <img item-left src="../../assets/imgs/vcash.png" alt="vcash">
+          </ion-avatar>
+          <div item-right >
+            <h5 class="text-center">Vodafone Cash</h5>
+            <hr>
+            <button ion-button icon-right class="loginBtn" (click)="confirmPayment('VDF')" color="primary">Pay</button>
+
+          </div>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+
+      
+  </div>
+
+
+</ion-content>

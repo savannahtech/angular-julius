@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tickets</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
+
+  <div *ngIf="logged">
+
+    <div *ngIf="noData">
+      <h3 style="text-align: center">No records found</h3>
+    </div>
+
+    <div *ngIf="!noData">
+        <ion-list>
+            <ion-item  *ngFor="let item of items" >
+              <ion-grid (click)="viewTicket(item)">
+                <ion-row>
+                  <ion-col col-2>
+                      <ion-icon name="paper"></ion-icon>
+                  </ion-col>
+                  <ion-col col-7>
+                      <h2>{{item.eventName}}</h2>
+                  </ion-col>
+                  <ion-col col-3>
+                      <p><ion-icon name="pricetag" color="danger"></ion-icon> {{item.quantity}}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+        </ion-list>
+
+        <ion-card  *ngIf="noRecords">
+            <ion-item>
+              <p style="text-align: center">No more records</p>
+            </ion-item>
+          </ion-card>
+
+          <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+    </div>
+
+  </div>
+
+  <div *ngIf="!logged" id="notLogged">
+    <h3>You need to log in to view your tickets</h3>
+    <br>
+    <button block ion-button (click)="goToLogin()">Click to log in</button>
+  </div>
+
+</ion-content>

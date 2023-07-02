@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ticket</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ngx-qrcode [qrc-value]="created_code"></ngx-qrcode>
+    <h3 class="eventdate"><ion-icon name="alarm"></ion-icon> {{eventDate}}</h3>
+    <h1 class='eventTitle'>{{eventName}}</h1>
+    <h1><ion-icon name="pricetag" color="danger"></ion-icon> &nbsp;<span class="quant">{{quantity}}</span></h1>
+</ion-content>

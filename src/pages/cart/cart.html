@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Cart</ion-title>
+    <ion-buttons end>
+      <button *ngIf="!noData" ion-button clear (click)="clearCart()" item-right>Clear</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="noData">
+    <h1 style="text-align: center; margin-top: 50px;">Empty Cart</h1>
+  </div>
+
+  <div *ngIf="!noData">
+
+    <ion-card>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let product of products; let i=index">
+            
+            <h2>{{product.eventName}}</h2>
+            <p><b><ion-icon name="newspaper"></ion-icon> {{product.quantity}} ticket(s) </b></p>
+
+            <button ion-button icon-only item-right clear (click)="deleteItem(product.event_id, i)">
+              <ion-icon name="trash" color="danger" ></ion-icon>
+            </button>
+
+            <hr>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card >
+      <ion-card-header>
+        <ion-card-title>
+          <h6 >bill details</h6>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          
+          <ion-item>
+            <p item-start>Total</p>
+            <p item-end><b>GH&cent; {{total}}</b></p>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+
+    <div style="text-align: center; margin: 25px 0; padding-bottom: 10px">
+      <button ion-button color="danger" (click)="goToPayment()">Proceed to payment</button>
+    </div>
+
+  </div>
+</ion-content>

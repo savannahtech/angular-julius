@@ -1,0 +1,43 @@
+page-buy-ticket {
+  .close-btn{
+    background: transparent !important;
+    color: #f53d3d;
+    border: none !important;
+  }
+
+  ion-title{
+    color : #f53d3d !important;
+  }
+
+  .toolbar-md-light .toolbar-title-md{
+    color : #f53d3d !important;
+  }
+
+  ion-select{
+    width: 100% !important;
+    color: #f53d3d;
+    max-width: 55% !important;
+  }
+
+  .select-md {
+    padding: 0 !important;
+    margin: 2px 0 0 0 !important;
+    width: 100% !important;
+    font-size: 1.2em;
+  }
+
+
+  .select-md .select-icon{
+    color: #f53d3d !important;
+  }
+
+  .ticQuantity{
+    color: #f53d3d;
+    font-size: 6em;
+  }
+
+  .confirm-btn{
+    padding: 20px;
+  }
+
+}

@@ -1,0 +1,80 @@
+<ion-header >
+  <ion-navbar>
+
+    <ion-title>
+      {{eventName}}
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides *ngIf="pictures && pictures.length"  autoplay="5000" loop="true" speed="1000" pager="true">
+    <ion-slide *ngFor="let picture of pictures">
+      <img [src]="picture.picture"/>
+    </ion-slide>
+  </ion-slides>
+
+
+  <div class="list-name">
+    <h6>{{eventName}} </h6>
+    <p><ion-icon name="alarm"></ion-icon> {{eventDate}}</p>
+  </div>
+
+
+  <ion-card>
+    <ion-card-content>
+
+      <div class="card-body">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <h2 class="time-header"><span style="color: #f53d3d">TIME: </span> {{eventTime}} GMT</h2>
+            </ion-col>
+
+            <ion-col col-6>
+              <ion-grid style="margin: -10px !important">
+                <ion-row>
+                  <ion-col col-4>
+                    <h1><ion-icon name="pricetag" color="blutix"></ion-icon></h1>
+                  </ion-col>
+
+                  <ion-col col-8>
+                              <span>
+                                  <h5 style="font-size: 0.7em">TICKETS LEFT</h5>
+                                  <p *ngIf="ticketsLeft < 20" class="left-red"><strong>{{ticketsLeft}}</strong></p>
+                                  <p *ngIf="ticketsLeft > 20"><strong>{{ticketsLeft}}</strong></p>
+                              </span>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <hr>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <h4><span style="color:#f53d3d">STANDARD:</span> <br>GH&cent; {{standardPrice}}</h4>
+            </ion-col>
+            <ion-col col-6>
+              <h4><span style="color:#f53d3d">VIP:</span> <br>GH&cent; {{vipPrice}}</h4>
+            </ion-col>
+           
+          </ion-row>
+        </ion-grid>
+        <hr>
+        <p style="text-align: justify">{{eventDesc}}</p>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer no-shadow>
+  <button ion-button class="loginBtn"  color="danger" icon-left (click)="openModal()">Buy Ticket &nbsp; &nbsp; <ion-icon name="arrow-round-forward"></ion-icon></button>
+</ion-footer>

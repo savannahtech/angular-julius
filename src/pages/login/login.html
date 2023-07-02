@@ -1,0 +1,53 @@
+<ion-content>
+
+  <form [formGroup]="formGroup" (submit)="submitLogin()">
+    <ion-card id="loginFormCard">
+      <ion-card-header>
+        <h1 style="color: #f53d3d">LOG IN</h1>
+        <p style="color: red; text-align: center">{{userPostData.text}}</p>
+        <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label color="danger" floating>Username</ion-label>
+            <ion-input type="text" formControlName="username"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.username" >
+              <div class="error-message" *ngIf="formGroup.get('username').hasError(validation.type) && (formGroup.get('username').dirty || formGroup.get('username').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+
+          <ion-item>
+            <ion-label color="danger" floating>Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.password" >
+            <div class="error-message" *ngIf="formGroup.get('password').hasError(validation.type) && (formGroup.get('password').dirty || formGroup.get('password').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <button ion-button icon-right class="loginBtn" color="danger" >Get Started &nbsp; &nbsp; <ion-icon name="arrow-round-forward"></ion-icon></button>
+
+  </form>
+
+
+  <!-- <button ion-button icon-right class="loginBtn" color="blutix" (click)="skipSignIn()">Skip Sign In &nbsp; &nbsp; <ion-icon name="arrow-round-forward"></ion-icon></button> -->
+
+  <br><br>
+  <a href="#" style="color: #f53d3d" (click)="resetPassword()"> Forgotten Password?</a>
+  <br>
+  <br>
+  <p style="color: #f53d3d">Not registered? <a href="#" style="color: #2c2c2c" (click)="goToSignup()"> Create Account</a></p>
+</ion-content>

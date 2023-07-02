@@ -1,0 +1,58 @@
+page-home {
+  .has-refresher > .scroll-content{
+    background-color: transparent !important;
+    border-top: none !important;
+
+  }
+
+  ion-searchbar{
+    padding: 40px 10px 10px 10px !important;
+  }
+
+  ion-card {
+    position: relative;
+    text-align: center;
+    margin: 30px 0 !important;
+    width: 100% !important;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 79%;
+    width: 100%;
+    color: #fff;
+    background-color: #f53d3d;
+    padding: 10px 20px;
+  }
+
+  .card-subtitle {
+    font-size: 0.9em;
+    position: absolute;
+    top: 0%;
+    color: #2e2e2e;
+    width: 40%;
+    padding: 10px;
+    background-color: whitesmoke;
+  }
+
+  .card-subtitle-red {
+    font-size: 0.9em;
+    position: absolute;
+    top: 0%;
+    color: #fff;
+    width: 40%;
+    padding: 10px;
+    background-color: #e66c8d;
+  }
+
+  .date-text{
+    margin-top: 2px;
+    font-size: 1.0em !important;
+  }
+
+  .event-name{
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+}

@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar color="light">
+    <ion-title style="color: #003d9e">{{eventName}}</ion-title>
+    <ion-buttons start >
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close" style="color: #f53d3d"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-5>
+        <h4 style="color:grey">Affiliation</h4>
+      </ion-col>
+      <ion-col col-7>
+        <ion-select [(ngModel)]="ticketData.affiliation" >
+          <ion-option value="home" selected>Home</ion-option>
+          <ion-option value="away">Away</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <h4 style="color:grey">Type</h4>
+      </ion-col>
+      <ion-col col-7>
+        <ion-select [(ngModel)]="ticketData.type" #C (ionChange)="onChange(C.value)">
+          <ion-option value="standard">Standard</ion-option>
+          <ion-option value="vip">VIP</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h2>Number of Tickets</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2></ion-col>
+      <ion-col col-2>
+        <button ion-button outline color="danger" (click)="increaseQuantity()" style="width: 100%; padding-top: 20px; padding-bottom: 20px;">
+          <ion-icon name="add"></ion-icon>
+        </button>
+
+        <button ion-button outline color="danger" (click)="decreaseQuantity()" style="width: 100%; padding-top: 20px; padding-bottom: 20px;">
+          <ion-icon name="remove"></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col col-4>
+        <h1 style="text-align: center" class="ticQuantity">{{quantity}}</h1>
+      </ion-col>
+
+      <ion-col col-4>
+        <h4 style="text-align: center; color: gray; margin-top: 20%; font-weight: bold">GH&cent;</h4>
+        <h3 style="text-align: center; color: #f53d3d; margin-top: -5px; font-weight: bold">{{totalAmt}}</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-footer no-shadow>
+    <button class="confirm-btn" ion-button full color="danger" icon-left (click)="presentConfirm()">Add To Cart</button>
+  </ion-footer>
+</ion-content>
+
+

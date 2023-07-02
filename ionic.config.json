@@ -1,0 +1,7 @@
+{
+  "name": "sTicket",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
